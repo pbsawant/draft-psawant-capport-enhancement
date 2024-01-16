@@ -63,15 +63,15 @@ Reference: RFC7235
 
 Key: internet-access
 Type: boolean
-Description: This is an optional key. It Iindicates whether the client has full Internet access.  This key is relevant only when the “captive” key is set to false. Its default value is true.
+Description: This is an optional key. It indicates whether the client has full Internet access.  This key is applicable only when the "captive" key is set to false. Its default value is true.
 
 Key: persist-api-server-connection
 Type: boolean
-Description: This is an optional key. It indicates whether client can establish a persistent connection with Captive Portal API Server. The purpose of the persistent connection is to allow the API server to send an updated API state to the client. With the help of this key the client can avoid polling the API state on expiry of seconds-remaining or bytes-remaining. This key is relevant only when the "captive" key is set to false. Default value is false.
+Description: This is an optional key. It indicates whether client can establish a persistent connection with Captive Portal API Server. The purpose of the persistent connection is to allow the API server to send an updated API state to the client. With the help of this key the client can avoid polling the API state on expiry of seconds-remaining or bytes-remaining. This key is applicable only when the "captive" key is set to false. Default value is false.
 
 Key: allow-domains
 Type: string
-Description: This is an optional key. It indicates a list of domains that the client is authorized to access. The value of this key is specified in comma separated value (CSV) format. The purpose of this key is to allow the client to handle the network connection errors for domains that are not specified by this key. This key is relevant only when the "captive" key is set to false. Default value is false.
+Description: This is an optional key. It indicates a list of domains that the client is allowed to access after "captive" key is set to false. The value of this key is specified in comma separated value (CSV) format. The purpose of this key is to allow the client to handle the network connection errors for domains that are not specified by this key. This key is applicable only when the "captive" key is set to false.
 
 
 # Security Considerations
