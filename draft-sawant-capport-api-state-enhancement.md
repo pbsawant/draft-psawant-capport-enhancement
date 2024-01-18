@@ -3,7 +3,7 @@ title: "Captive Portal API State Structure Enhancement"
 abbrev: "CAPPORT State Enhancement"
 category: info
 
-docname: draft-sawant-capport-api-state-enhancement-latest
+docname: draft-sawant-capport-api-state-enhancement
 submissiontype: IETF
 number:
 date:
@@ -76,11 +76,11 @@ Description: This is an optional key. It indicates a list of domains that the cl
 
 # Security Considerations
 
-This document recommends security consideration specified in {{section 7 of RFC 8908}}
+This document recommends security consideration specified in section 7 of RFC 8908.
 
 # Privacy Considerations
 
-This document recommends privacy consideration specified in {{section 7.1 of RFC 8908}}
+This document recommends privacy consideration specified in section 7.1 of RFC 8908.
 
 
 # IANA Considerations
