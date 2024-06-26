@@ -34,7 +34,7 @@ perform the client authentication without user interaction.
     wcwidth 0.2.13
     weasyprint 61.2
 -->
-<link href="/usr/src/app/tmp/4b5545b7-a647-4d70-ac6f-90c7f3b15f41/draft-sawant-capport-api-state-enhancement-00.xml" rel="alternate" type="application/rfc+xml">
+<link href="/usr/src/app/tmp/c64766fa-82a6-4731-9993-37921e3c4fea/draft-sawant-capport-api-state-enhancement-00.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
 <style type="text/css">/*
 
@@ -1221,7 +1221,7 @@ li > p:last-of-type:only-child {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Sawant</td>
-<td class="center">Expires 27 December 2024</td>
+<td class="center">Expires 28 December 2024</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1234,12 +1234,12 @@ li > p:last-of-type:only-child {
 <dd class="internet-draft">draft-sawant-capport-api-state-enhancement-00</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2024-06-25" class="published">25 June 2024</time>
+<time datetime="2024-06-26" class="published">26 June 2024</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2024-12-27">27 December 2024</time></dd>
+<dd class="expires"><time datetime="2024-12-28">28 December 2024</time></dd>
 <dt class="label-authors">Author:</dt>
 <dd class="authors">
 <div class="author">
@@ -1275,7 +1275,7 @@ perform the client authentication without user interaction.<a href="#section-abs
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 27 December 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 28 December 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1365,80 +1365,29 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
       <h2 id="name-api-state-structure-enhance">
 <a href="#section-3" class="section-number selfRef">3. </a><a href="#name-api-state-structure-enhance" class="section-name selfRef">API State Structure Enhancement</a>
       </h2>
-<p id="section-3-1">Table 1 shows the new key that can be optionally included in the
+<p id="section-3-1"><a href="#new-key" class="auto internal xref">Table 1</a> shows the new key that can be optionally included in the
 top-level of the JSON structure returned by the API server.<a href="#section-3-1" class="pilcrow">¶</a></p>
-<div id="section-3-2">
-        <div class="alignLeft art-svg artwork" id="section-3-2.1">
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="304" width="520" viewBox="0 0 520 304" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
-            <path d="M 8,32 L 8,288" fill="none" stroke="black"></path>
-            <path d="M 152,32 L 152,288" fill="none" stroke="black"></path>
-            <path d="M 232,32 L 232,288" fill="none" stroke="black"></path>
-            <path d="M 512,32 L 512,288" fill="none" stroke="black"></path>
-            <path d="M 8,30 L 512,30" fill="none" stroke="black"></path>
-            <path d="M 8,34 L 512,34" fill="none" stroke="black"></path>
-            <path d="M 8,62 L 512,62" fill="none" stroke="black"></path>
-            <path d="M 8,66 L 512,66" fill="none" stroke="black"></path>
-            <path d="M 8,288 L 512,288" fill="none" stroke="black"></path>
-            <g class="text">
-              <text x="32" y="52">Key</text>
-              <text x="180" y="52">Type</text>
-              <text x="288" y="52">Description</text>
-              <text x="80" y="84">authentication-</text>
-              <text x="188" y="84">string</text>
-              <text x="252" y="84">It</text>
-              <text x="300" y="84">provides</text>
-              <text x="352" y="84">the</text>
-              <text x="384" y="84">URL</text>
-              <text x="412" y="84">of</text>
-              <text x="440" y="84">the</text>
-              <text x="60" y="100">server-url</text>
-              <text x="300" y="100">Authentication</text>
-              <text x="388" y="100">Server</text>
-              <text x="436" y="100">that</text>
-              <text x="476" y="100">MUST</text>
-              <text x="252" y="116">be</text>
-              <text x="300" y="116">accessed</text>
-              <text x="356" y="116">over</text>
-              <text x="396" y="116">TLS.</text>
-              <text x="300" y="132">Authentication</text>
-              <text x="388" y="132">Server</text>
-              <text x="296" y="148">authenticates</text>
-              <text x="384" y="148">clients</text>
-              <text x="440" y="148">using</text>
-              <text x="480" y="148">the</text>
-              <text x="260" y="164">HTTP</text>
-              <text x="340" y="164">authentication</text>
-              <text x="440" y="164">framework</text>
-              <text x="280" y="180">specified</text>
-              <text x="332" y="180">in</text>
-              <text x="388" y="180">[RFC9110].</text>
-              <text x="256" y="196">The</text>
-              <text x="300" y="196">server</text>
-              <text x="348" y="196">MUST</text>
-              <text x="384" y="196">NOT</text>
-              <text x="432" y="196">require</text>
-              <text x="260" y="212">user</text>
-              <text x="328" y="212">interaction</text>
-              <text x="388" y="212">on</text>
-              <text x="416" y="212">the</text>
-              <text x="460" y="212">client</text>
-              <text x="272" y="228">device.</text>
-              <text x="320" y="228">The</text>
-              <text x="364" y="228">client</text>
-              <text x="412" y="228">MUST</text>
-              <text x="452" y="228">have</text>
-              <text x="480" y="228">a</text>
-              <text x="284" y="244">credential</text>
-              <text x="340" y="244">to</text>
-              <text x="384" y="244">perform</text>
-              <text x="432" y="244">the</text>
-              <text x="300" y="260">authentication</text>
-              <text x="392" y="260">without</text>
-              <text x="444" y="260">user</text>
-              <text x="292" y="276">interaction.</text>
-            </g>
-          </svg><a href="#section-3-2.1" class="pilcrow">¶</a>
-</div>
+<span id="name-table-1"></span><div id="new-key">
+<table class="center" id="table-1">
+        <caption>
+<a href="#table-1" class="selfRef">Table 1</a>:
+<a href="#name-table-1" class="selfRef">Table 1</a>
+        </caption>
+<thead>
+          <tr>
+            <th class="text-left" rowspan="1" colspan="1">Key</th>
+            <th class="text-left" rowspan="1" colspan="1">Type</th>
+            <th class="text-left" rowspan="1" colspan="1">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">authentication-server-url</td>
+            <td class="text-left" rowspan="1" colspan="1">string</td>
+            <td class="text-left" rowspan="1" colspan="1">It provides the URL of the Authentication Server that <span class="bcp14">MUST</span> be accessed over TLS. Authentication Server authenticates clients using the HTTP authentication framework specified in <span>[<a href="#RFC9110" class="cite xref">RFC9110</a>]</span>. The server <span class="bcp14">MUST NOT</span> require user interaction on the client device. The client <span class="bcp14">MUST</span> have a credential to perform the authentication without user nteraction.</td>
+          </tr>
+        </tbody>
+      </table>
 </div>
 </section>
 </div>
@@ -1465,7 +1414,7 @@ top-level of the JSON structure returned by the API server.<a href="#section-3-1
       <h2 id="name-iana-considerations">
 <a href="#section-6" class="section-number selfRef">6. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
       </h2>
-<p id="section-6-1">IANA is requested to add the new key specified in Table 1.<a href="#section-6-1" class="pilcrow">¶</a></p>
+<p id="section-6-1">IANA is requested to add the new key specified in <a href="#new-key" class="auto internal xref">Table 1</a>.<a href="#section-6-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="sec-normative-references">
@@ -1487,8 +1436,12 @@ top-level of the JSON structure returned by the API server.<a href="#section-3-1
 <span class="refAuthor">Bray, T., Ed.</span>, <span class="refTitle">"The JavaScript Object Notation (JSON) Data Interchange Format"</span>, <span class="seriesInfo">STD 90</span>, <span class="seriesInfo">RFC 8259</span>, <span class="seriesInfo">DOI 10.17487/RFC8259</span>, <time datetime="2017-12" class="refDate">December 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc8259">https://www.rfc-editor.org/info/rfc8259</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8908">[RFC8908]</dt>
-    <dd>
+      <dd>
 <span class="refAuthor">Pauly, T., Ed.</span> and <span class="refAuthor">D. Thakore, Ed.</span>, <span class="refTitle">"Captive Portal API"</span>, <span class="seriesInfo">RFC 8908</span>, <span class="seriesInfo">DOI 10.17487/RFC8908</span>, <time datetime="2020-09" class="refDate">September 2020</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc8908">https://www.rfc-editor.org/info/rfc8908</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC9110">[RFC9110]</dt>
+    <dd>
+<span class="refAuthor">Fielding, R., Ed.</span>, <span class="refAuthor">Nottingham, M., Ed.</span>, and <span class="refAuthor">J. Reschke, Ed.</span>, <span class="refTitle">"HTTP Semantics"</span>, <span class="seriesInfo">STD 97</span>, <span class="seriesInfo">RFC 9110</span>, <span class="seriesInfo">DOI 10.17487/RFC9110</span>, <time datetime="2022-06" class="refDate">June 2022</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc9110">https://www.rfc-editor.org/info/rfc9110</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
