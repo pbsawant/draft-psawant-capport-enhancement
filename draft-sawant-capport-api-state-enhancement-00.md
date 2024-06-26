@@ -47,28 +47,13 @@ perform the authentication without user interaction.
 
 # API State Structure Enhancement
 
-Table 1 shows the new key that can be optionally included in the
+{{new-key}} shows the new key that can be optionally included in the
 top-level of the JSON structure returned by the API server.
 
-~~~ aasvg
-+=================+=========+==================================+
-| Key             | Type    | Description                      |
-+=================+=========+==================================+
-| authentication- | string  | It provides the URL of the       |
-| server-url      |         | Authentication Server that MUST  |
-|                 |         | be accessed over TLS.            |
-|                 |         | Authentication Server            |
-|                 |         | authenticates clients using the  |
-|                 |         | HTTP authentication framework    |
-|                 |         | specified in [RFC9110].          |
-|                 |         | The server MUST NOT require      |
-|                 |         | user interaction on the client   |
-|                 |         | device. The client MUST have a   |
-|                 |         | credential to perform the        |
-|                 |         | authentication without user      |
-|                 |         | interaction.                     |
-+-----------------+---------+----------------------------------+
-~~~
+| Key             | Type        | Description                  |
+|:----------------|:------------|:-----------------------------|
+| authentication-server-url | string | It provides the URL of the Authentication Server that MUST be accessed over TLS. Authentication Server authenticates clients using the HTTP authentication framework specified in {{!RFC9110}}. The server MUST NOT require user interaction on the client device. The client MUST have a credential to perform the authentication without user nteraction. |
+{: #new-key title="Table 1"}
  
 # Security Considerations
 
@@ -82,6 +67,6 @@ This document recommends privacy consideration specified in
 
 # IANA Considerations
 
-IANA is requested to add the new key specified in Table 1.
+IANA is requested to add the new key specified in {{new-key}}.
 
 --- back

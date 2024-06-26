@@ -4,8 +4,8 @@
 
 Network Working Group                                          P. Sawant
 Internet-Draft                                                Apple Inc.
-Intended status: Informational                              25 June 2024
-Expires: 27 December 2024
+Intended status: Informational                              26 June 2024
+Expires: 28 December 2024
 
 
              Captive Portal API State Structure Enhancement
@@ -32,7 +32,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 27 December 2024.
+   This Internet-Draft will expire on 28 December 2024.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Sawant                  Expires 27 December 2024                [Page 1]
+Sawant                  Expires 28 December 2024                [Page 1]
 
 Internet-Draft        CAPPORT API State Enhancement            June 2024
 
@@ -109,28 +109,31 @@ Table of Contents
 
 
 
-Sawant                  Expires 27 December 2024                [Page 2]
+Sawant                  Expires 28 December 2024                [Page 2]
 
 Internet-Draft        CAPPORT API State Enhancement            June 2024
 
 
-   +=================+=========+==================================+
-   | Key             | Type    | Description                      |
-   +=================+=========+==================================+
-   | authentication- | string  | It provides the URL of the       |
-   | server-url      |         | Authentication Server that MUST  |
-   |                 |         | be accessed over TLS.            |
-   |                 |         | Authentication Server            |
-   |                 |         | authenticates clients using the  |
-   |                 |         | HTTP authentication framework    |
-   |                 |         | specified in [RFC9110].          |
-   |                 |         | The server MUST NOT require      |
-   |                 |         | user interaction on the client   |
-   |                 |         | device. The client MUST have a   |
-   |                 |         | credential to perform the        |
-   |                 |         | authentication without user      |
-   |                 |         | interaction.                     |
-   +-----------------+---------+----------------------------------+
+   +===========================+========+=============================+
+   | Key                       | Type   | Description                 |
+   +===========================+========+=============================+
+   | authentication-server-url | string | It provides the URL of the  |
+   |                           |        | Authentication Server that  |
+   |                           |        | MUST be accessed over TLS.  |
+   |                           |        | Authentication Server       |
+   |                           |        | authenticates clients using |
+   |                           |        | the HTTP authentication     |
+   |                           |        | framework specified in      |
+   |                           |        | [RFC9110].  The server MUST |
+   |                           |        | NOT require user            |
+   |                           |        | interaction on the client   |
+   |                           |        | device.  The client MUST    |
+   |                           |        | have a credential to        |
+   |                           |        | perform the authentication  |
+   |                           |        | without user nteraction.    |
+   +---------------------------+--------+-----------------------------+
+
+                             Table 1: Table 1
 
 4.  Security Considerations
 
@@ -157,22 +160,29 @@ Internet-Draft        CAPPORT API State Enhancement            June 2024
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/info/rfc8174>.
 
+
+
+
+
+
+Sawant                  Expires 28 December 2024                [Page 3]
+
+Internet-Draft        CAPPORT API State Enhancement            June 2024
+
+
    [RFC8259]  Bray, T., Ed., "The JavaScript Object Notation (JSON) Data
               Interchange Format", STD 90, RFC 8259,
               DOI 10.17487/RFC8259, December 2017,
               <https://www.rfc-editor.org/info/rfc8259>.
 
-
-
-
-Sawant                  Expires 27 December 2024                [Page 3]
-
-Internet-Draft        CAPPORT API State Enhancement            June 2024
-
-
    [RFC8908]  Pauly, T., Ed. and D. Thakore, Ed., "Captive Portal API",
               RFC 8908, DOI 10.17487/RFC8908, September 2020,
               <https://www.rfc-editor.org/info/rfc8908>.
+
+   [RFC9110]  Fielding, R., Ed., Nottingham, M., Ed., and J. Reschke,
+              Ed., "HTTP Semantics", STD 97, RFC 9110,
+              DOI 10.17487/RFC9110, June 2022,
+              <https://www.rfc-editor.org/info/rfc9110>.
 
 Author's Address
 
@@ -211,14 +221,4 @@ Author's Address
 
 
 
-
-
-
-
-
-
-
-
-
-
-Sawant                  Expires 27 December 2024                [Page 4]
+Sawant                  Expires 28 December 2024                [Page 4]
