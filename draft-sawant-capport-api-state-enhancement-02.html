@@ -11,14 +11,14 @@
 structure. The purpose of the new key is to allow clients to
 perform the client authentication without user interaction. 
     " name="description">
-<meta content="xml2rfc 3.22.0" name="generator">
+<meta content="xml2rfc 3.23.0" name="generator">
 <meta content="capport api state" name="keyword">
 <meta content="token" name="keyword">
 <meta content="internet access" name="keyword">
 <meta content="notification" name="keyword">
-<meta content="draft-sawant-capport-api-state-enhancement-01" name="ietf.draft">
+<meta content="draft-sawant-capport-api-state-enhancement-02" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.22.0
+  xml2rfc 3.23.0
     Python 3.10.12
     ConfigArgParse 1.7
     google-i18n-address 3.1.0
@@ -27,13 +27,14 @@ perform the client authentication without user interaction.
     lxml 4.9.4
     platformdirs 4.2.2
     pycountry 24.6.1
-    PyYAML 6.0.1
+    pydyf 0.10.0
+    PyYAML 6.0.2
     requests 2.32.3
     setuptools 59.6.0
     wcwidth 0.2.13
-    weasyprint 62.3
+    weasyprint 61.2
 -->
-<link href="/usr/src/app/tmp/6be50a97-dd22-47e0-82a0-14fa3086a042/draft-sawant-capport-api-state-enhancement-01.xml" rel="alternate" type="application/rfc+xml">
+<link href="/usr/src/app/tmp/b5a00362-c1d5-4de6-8c5d-e95aa2ebc5b7/draft-sawant-capport-api-state-enhancement-02.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
 <style type="text/css">/*
 
@@ -1164,7 +1165,7 @@ section .olCompact {
 tt, code {
   background-color: transparent;
 }
-p tt, p code, li tt, li code {
+p tt, p code, li tt, li code, dt tt, dt code {
   background-color: #f8f8f8;
 }
 /* Tweak the pre margin -- 0px doesn't come out well */
@@ -1220,7 +1221,7 @@ li > p:last-of-type:only-child {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Sawant</td>
-<td class="center">Expires 20 February 2025</td>
+<td class="center">Expires 23 February 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1230,15 +1231,15 @@ li > p:last-of-type:only-child {
 <dt class="label-workgroup">Workgroup:</dt>
 <dd class="workgroup">Network Working Group</dd>
 <dt class="label-internet-draft">Internet-Draft:</dt>
-<dd class="internet-draft">draft-sawant-capport-api-state-enhancement-01</dd>
+<dd class="internet-draft">draft-sawant-capport-api-state-enhancement-02</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2024-08-19" class="published">19 August 2024</time>
+<time datetime="2024-08-22" class="published">22 August 2024</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-02-20">20 February 2025</time></dd>
+<dd class="expires"><time datetime="2025-02-23">23 February 2025</time></dd>
 <dt class="label-authors">Author:</dt>
 <dd class="authors">
 <div class="author">
@@ -1274,7 +1275,7 @@ perform the client authentication without user interaction.<a href="#section-abs
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 20 February 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 23 February 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1328,7 +1329,15 @@ perform the client authentication without user interaction.<a href="#section-abs
             <p id="section-toc.1-1.8.1"><a href="#section-8" class="auto internal xref">8</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
-            <p id="section-toc.1-1.9.1"><a href="#section-9" class="auto internal xref">9</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
+            <p id="section-toc.1-1.9.1"><a href="#section-9" class="auto internal xref">9</a>.  <a href="#name-references" class="internal xref">References</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.1">
+                <p id="section-toc.1-1.9.2.1.1"><a href="#section-9.1" class="auto internal xref">9.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.2">
+                <p id="section-toc.1-1.9.2.2.1"><a href="#section-9.2" class="auto internal xref">9.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
+</li>
+            </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10">
             <p id="section-toc.1-1.10.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-authors-address" class="internal xref">Author's Address</a></p>
@@ -1372,12 +1381,9 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
       </h2>
 <p id="section-3-1"><a href="#new-key" class="auto internal xref">Table 1</a> shows the new key that can be optionally included in the
 top-level of the JSON structure returned by the API server.<a href="#section-3-1" class="pilcrow">¶</a></p>
-<span id="name-table-1"></span><div id="new-key">
+<div id="new-key">
 <table class="center" id="table-1">
-        <caption>
-<a href="#table-1" class="selfRef">Table 1</a>:
-<a href="#name-table-1" class="selfRef">Table 1</a>
-        </caption>
+        <caption><a href="#table-1" class="selfRef">Table 1</a></caption>
 <thead>
           <tr>
             <th class="text-left" rowspan="1" colspan="1">Key</th>
@@ -1410,9 +1416,11 @@ can join captive networks using the credentials provisioned to
 them.<a href="#section-4-1.1.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-4-1.2">
-          <p id="section-4-1.2.1">Use of "PrivateToken" HTTP authentication scheme can attest that
-the client behind the user agent is likely not a bot attempting to
-perform some form of automated attack such as credential stuffing.<a href="#section-4-1.2.1" class="pilcrow">¶</a></p>
+          <p id="section-4-1.2.1"><span><a href="https://rfc-editor.org/rfc/rfc9577#section-2" class="relref">Section 2</a> of [<a href="#RFC9577" class="cite xref">RFC9577</a>]</span> specifies "PrivateToken" HTTP
+authentication scheme. Use of "PrivateToken" HTTP authentication
+scheme can attest that the client behind the user agent is likely
+not a bot attempting to perform some form of automated attack
+such as credential stuffing.<a href="#section-4-1.2.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-4-1.3">
           <p id="section-4-1.3.1">User experience improvements by not requiring user's interaction
@@ -1431,173 +1439,106 @@ or watch some commercial on every connection to captive network.<a href="#sectio
       </h2>
 <p id="section-5-1">Upon discovering the URI of the API server, a client connected to a
 captive network will query the API server to retrieve information
-about its captive state and conditions to escape captivity.  In this
-example, the client discovered the URI "https://example.org/captive-
-portal/api/X54PD39JV" using one of the mechanisms defined in
-<span>[<a href="#RFC8910" class="cite xref">RFC8910</a>]</span>.<a href="#section-5-1" class="pilcrow">¶</a></p>
-<p id="section-5-2">To request the Captive Portal JSON content, a client sends an
-HTTP GET request:<a href="#section-5-2" class="pilcrow">¶</a></p>
-<div id="section-5-3">
-        <div class="alignLeft art-svg artwork" id="section-5-3.1">
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="80" width="344" viewBox="0 0 344 80" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
-            <g class="text">
-              <text x="16" y="36">GET</text>
-              <text x="152" y="36">/captive-portal/api/X54PD39JV</text>
-              <text x="308" y="36">HTTP/1.1</text>
-              <text x="24" y="52">Host:</text>
-              <text x="96" y="52">example.org</text>
-              <text x="32" y="68">Accept:</text>
-              <text x="164" y="68">application/captive+json</text>
-            </g>
-          </svg><a href="#section-5-3.1" class="pilcrow">¶</a>
+about its captive state and conditions to escape captivity. In this
+example, the client discovered the URI
+"https://example.org/captive-portal/api/X54PD39JV" using one of
+the mechanisms defined in <span>[<a href="#RFC8910" class="cite xref">RFC8910</a>]</span>.<a href="#section-5-1" class="pilcrow">¶</a></p>
+<p id="section-5-2">This example illustrates the use of "client-authentication-url" key,
+and therefore, excludes "user-portal-url" key from the JSON content
+sent by the API server. An API server may choose to send both the keys
+based on its policy and configuration. And the client can choose
+one of them or both to perform the authentication, based on its
+configuration and capability.<a href="#section-5-2" class="pilcrow">¶</a></p>
+<p id="section-5-3">To request the Captive Portal JSON content, a client sends an
+HTTP GET request:<a href="#section-5-3" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-5-4">
+<pre>
+GET /captive-portal/api/X54PD39JV HTTP/1.1
+Host: example.org
+Accept: application/captive+json
+</pre><a href="#section-5-4" class="pilcrow">¶</a>
 </div>
+<p id="section-5-5">The server then responds with the JSON content for that client:<a href="#section-5-5" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-5-6">
+<pre>
+HTTP/1.1 200 OK
+Cache-Control: private
+Date: Mon, 19 Aug 2024 05:07:35 GMT
+Content-Type: application/captive+json
+
+{
+    "captive": true,
+    "client-authentication-url": "https://server.example.org/auth"
+}
+</pre><a href="#section-5-6" class="pilcrow">¶</a>
 </div>
-<p id="section-5-4">The server then responds with the JSON content for that client:<a href="#section-5-4" class="pilcrow">¶</a></p>
-<div id="section-5-5">
-        <div class="alignLeft art-svg artwork" id="section-5-5.1">
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="176" width="536" viewBox="0 0 536 176" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
-            <g class="text">
-              <text x="36" y="36">HTTP/1.1</text>
-              <text x="88" y="36">200</text>
-              <text x="116" y="36">OK</text>
-              <text x="60" y="52">Cache-Control:</text>
-              <text x="152" y="52">private</text>
-              <text x="24" y="68">Date:</text>
-              <text x="68" y="68">Mon,</text>
-              <text x="100" y="68">19</text>
-              <text x="128" y="68">Aug</text>
-              <text x="164" y="68">2024</text>
-              <text x="220" y="68">05:07:35</text>
-              <text x="272" y="68">GMT</text>
-              <text x="56" y="84">Content-Type:</text>
-              <text x="212" y="84">application/captive+json</text>
-              <text x="8" y="116">{</text>
-              <text x="76" y="132">"captive":</text>
-              <text x="144" y="132">true,</text>
-              <text x="148" y="148">"client-authentication-url":</text>
-              <text x="400" y="148">"https://server.example.org/auth"</text>
-              <text x="8" y="164">}</text>
-            </g>
-          </svg><a href="#section-5-5.1" class="pilcrow">¶</a>
-</div>
-</div>
-<p id="section-5-6">Upon receiving this information, the client will use it to start
+<p id="section-5-7">Upon receiving this information, the client will use it to start
 an authentication session with the server (as specified by "client-
 authentication-url" key) to enable access to the external network.
-The client sends following HTTP request to begin the authentication:<a href="#section-5-6" class="pilcrow">¶</a></p>
-<div id="section-5-7">
-        <div class="alignLeft art-svg artwork" id="section-5-7.1">
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="64" width="200" viewBox="0 0 200 64" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
-            <g class="text">
-              <text x="16" y="36">GET</text>
-              <text x="56" y="36">/auth</text>
-              <text x="116" y="36">HTTP/1.1</text>
-              <text x="24" y="52">Host:</text>
-              <text x="124" y="52">server.example.org</text>
-            </g>
-          </svg><a href="#section-5-7.1" class="pilcrow">¶</a>
+The client sends following HTTP request to begin the authentication:<a href="#section-5-7" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-5-8">
+<pre>
+GET /auth HTTP/1.1
+Host: server.example.org
+</pre><a href="#section-5-8" class="pilcrow">¶</a>
 </div>
-</div>
-<p id="section-5-8">Upon receiving the HTTP request, the server selects appropriate
+<p id="section-5-9">Upon receiving the HTTP request, the server selects appropriate
 authentication scheme to authenticate the client. This example
 shows "Bearer" authentication scheme defined in <span>[<a href="#RFC6750" class="cite xref">RFC6750</a>]</span>.
 <span><a href="https://rfc-editor.org/rfc/rfc9110#section-16.4.1" class="relref">Section 16.4.1</a> of [<a href="#RFC9110" class="cite xref">RFC9110</a>]</span> specifies the list of authentication
 schemes. The server sends HTTP response message with 401
-(Unauthorized) status code along with WWW-Authenticate header:<a href="#section-5-8" class="pilcrow">¶</a></p>
-<div id="section-5-9">
-        <div class="alignLeft art-svg artwork" id="section-5-9.1">
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="64" width="328" viewBox="0 0 328 64" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
-            <g class="text">
-              <text x="36" y="36">HTTP/1.1</text>
-              <text x="88" y="36">401</text>
-              <text x="156" y="36">Unauthorized</text>
-              <text x="72" y="52">WWW-Authenticate:</text>
-              <text x="172" y="52">Bearer</text>
-              <text x="264" y="52">realm="example"</text>
-            </g>
-          </svg><a href="#section-5-9.1" class="pilcrow">¶</a>
+(Unauthorized) status code along with WWW-Authenticate header:<a href="#section-5-9" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-5-10">
+<pre>
+HTTP/1.1 401 Unauthorized
+WWW-Authenticate: Bearer realm="example"
+</pre><a href="#section-5-10" class="pilcrow">¶</a>
 </div>
-</div>
-<p id="section-5-10">In response to the received challenge, the client sends an access
+<p id="section-5-11">In response to the received challenge, the client sends an access
 token in the "Authorization" request header using "Bearer"
-authentication scheme:<a href="#section-5-10" class="pilcrow">¶</a></p>
-<div id="section-5-11">
-        <div class="alignLeft art-svg artwork" id="section-5-11.1">
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="80" width="304" viewBox="0 0 304 80" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
-            <g class="text">
-              <text x="16" y="36">GET</text>
-              <text x="56" y="36">/auth</text>
-              <text x="116" y="36">HTTP/1.1</text>
-              <text x="24" y="52">Host:</text>
-              <text x="124" y="52">server.example.org</text>
-              <text x="60" y="68">Authorization:</text>
-              <text x="148" y="68">Bearer</text>
-              <text x="240" y="68">mF_9.B5f-4.1JqM</text>
-            </g>
-          </svg><a href="#section-5-11.1" class="pilcrow">¶</a>
+authentication scheme:<a href="#section-5-11" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-5-12">
+<pre>
+GET /auth HTTP/1.1
+Host: server.example.org
+Authorization: Bearer mF_9.B5f-4.1JqM
+</pre><a href="#section-5-12" class="pilcrow">¶</a>
 </div>
+<p id="section-5-13">If the access token is found valid, the server sends a response to
+the client. An example of such response is:<a href="#section-5-13" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-5-14">
+<pre>
+HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+Cache-Control: no-store
+Pragma: no-cache
+{
+    "access_token":"mF_9.B5f-4.1JqM",
+    "token_type":"Bearer",
+    "expires_in":3600,
+    "refresh_token":"tGzv3JOkF0XG5Qx2TlKWIA"
+}
+</pre><a href="#section-5-14" class="pilcrow">¶</a>
 </div>
-<p id="section-5-12">If the access token is found valid, the server sends a response to
-the client. An example of such response is:<a href="#section-5-12" class="pilcrow">¶</a></p>
-<div id="section-5-13">
-        <div class="alignLeft art-svg artwork" id="section-5-13.1">
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="192" width="360" viewBox="0 0 360 192" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
-            <g class="text">
-              <text x="36" y="36">HTTP/1.1</text>
-              <text x="88" y="36">200</text>
-              <text x="116" y="36">OK</text>
-              <text x="56" y="52">Content-Type:</text>
-              <text x="236" y="52">application/json;charset=UTF-8</text>
-              <text x="60" y="68">Cache-Control:</text>
-              <text x="156" y="68">no-store</text>
-              <text x="32" y="84">Pragma:</text>
-              <text x="100" y="84">no-cache</text>
-              <text x="8" y="100">{</text>
-              <text x="168" y="116">"access_token":"mF_9.B5f-4.1JqM",</text>
-              <text x="124" y="132">"token_type":"Bearer",</text>
-              <text x="108" y="148">"expires_in":3600,</text>
-              <text x="196" y="164">"refresh_token":"tGzv3JOkF0XG5Qx2TlKWIA"</text>
-              <text x="8" y="180">}</text>
-            </g>
-          </svg><a href="#section-5-13.1" class="pilcrow">¶</a>
-</div>
-</div>
-<p id="section-5-14">On a successful HTTP authentication, the client <span class="bcp14">SHOULD</span> query the
-API server again to verify that it is no longer captive.<a href="#section-5-14" class="pilcrow">¶</a></p>
-<p id="section-5-15">When the client requests the Captive Portal JSON content after
+<p id="section-5-15">On a successful HTTP authentication, the client <span class="bcp14">SHOULD</span> query the
+API server again to verify that it is no longer captive.<a href="#section-5-15" class="pilcrow">¶</a></p>
+<p id="section-5-16">When the client requests the Captive Portal JSON content after
 gaining external network access, the server responds with updated
-JSON content:<a href="#section-5-15" class="pilcrow">¶</a></p>
-<div id="section-5-16">
-        <div class="alignLeft art-svg artwork" id="section-5-16.1">
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="208" width="528" viewBox="0 0 528 208" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
-            <g class="text">
-              <text x="36" y="36">HTTP/1.1</text>
-              <text x="88" y="36">200</text>
-              <text x="116" y="36">OK</text>
-              <text x="60" y="52">Cache-Control:</text>
-              <text x="152" y="52">private</text>
-              <text x="24" y="68">Date:</text>
-              <text x="68" y="68">Mon,</text>
-              <text x="100" y="68">19</text>
-              <text x="128" y="68">Aug</text>
-              <text x="164" y="68">2024</text>
-              <text x="220" y="68">05:08:13</text>
-              <text x="272" y="68">GMT</text>
-              <text x="56" y="84">Content-Type:</text>
-              <text x="212" y="84">application/captive+json</text>
-              <text x="8" y="116">{</text>
-              <text x="76" y="132">"captive":</text>
-              <text x="148" y="132">false,</text>
-              <text x="104" y="148">"venue-info-url":</text>
-              <text x="352" y="148">"https://flight.example.com/entertainment",</text>
-              <text x="116" y="164">"seconds-remaining":</text>
-              <text x="220" y="164">326,</text>
-              <text x="120" y="180">"can-extend-session":</text>
-              <text x="228" y="180">true</text>
-              <text x="8" y="196">}</text>
-            </g>
-          </svg><a href="#section-5-16.1" class="pilcrow">¶</a>
-</div>
+JSON content:<a href="#section-5-16" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-5-17">
+<pre>
+HTTP/1.1 200 OK
+Cache-Control: private
+Date: Mon, 19 Aug 2024 05:08:13 GMT
+Content-Type: application/captive+json
+
+{
+    "captive": false,
+    "venue-info-url": "https://flight.example.com/entertainment",
+    "seconds-remaining": 326,
+    "can-extend-session": true
+}
+</pre><a href="#section-5-17" class="pilcrow">¶</a>
 </div>
 </section>
 </div>
@@ -1627,41 +1568,61 @@ JSON content:<a href="#section-5-15" class="pilcrow">¶</a></p>
 <p id="section-8-1">IANA is requested to add the new key specified in <a href="#new-key" class="auto internal xref">Table 1</a>.<a href="#section-8-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="sec-normative-references">
+<div id="sec-combined-references">
 <section id="section-9">
-      <h2 id="name-normative-references">
-<a href="#section-9" class="section-number selfRef">9. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
+      <h2 id="name-references">
+<a href="#section-9" class="section-number selfRef">9. </a><a href="#name-references" class="section-name selfRef">References</a>
       </h2>
+<div id="sec-normative-references">
+<section id="section-9.1">
+        <h3 id="name-normative-references">
+<a href="#section-9.1" class="section-number selfRef">9.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
+        </h3>
 <dl class="references">
 <dt id="RFC2119">[RFC2119]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Bradner, S.</span>, <span class="refTitle">"Key words for use in RFCs to Indicate Requirement Levels"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 2119</span>, <span class="seriesInfo">DOI 10.17487/RFC2119</span>, <time datetime="1997-03" class="refDate">March 1997</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc2119">https://www.rfc-editor.org/info/rfc2119</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC6750">[RFC6750]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Jones, M.</span> and <span class="refAuthor">D. Hardt</span>, <span class="refTitle">"The OAuth 2.0 Authorization Framework: Bearer Token Usage"</span>, <span class="seriesInfo">RFC 6750</span>, <span class="seriesInfo">DOI 10.17487/RFC6750</span>, <time datetime="2012-10" class="refDate">October 2012</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc6750">https://www.rfc-editor.org/info/rfc6750</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8174">[RFC8174]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Leiba, B.</span>, <span class="refTitle">"Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 8174</span>, <span class="seriesInfo">DOI 10.17487/RFC8174</span>, <time datetime="2017-05" class="refDate">May 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc8174">https://www.rfc-editor.org/info/rfc8174</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8259">[RFC8259]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Bray, T., Ed.</span>, <span class="refTitle">"The JavaScript Object Notation (JSON) Data Interchange Format"</span>, <span class="seriesInfo">STD 90</span>, <span class="seriesInfo">RFC 8259</span>, <span class="seriesInfo">DOI 10.17487/RFC8259</span>, <time datetime="2017-12" class="refDate">December 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc8259">https://www.rfc-editor.org/info/rfc8259</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8908">[RFC8908]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Pauly, T., Ed.</span> and <span class="refAuthor">D. Thakore, Ed.</span>, <span class="refTitle">"Captive Portal API"</span>, <span class="seriesInfo">RFC 8908</span>, <span class="seriesInfo">DOI 10.17487/RFC8908</span>, <time datetime="2020-09" class="refDate">September 2020</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc8908">https://www.rfc-editor.org/info/rfc8908</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8910">[RFC8910]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Kumari, W.</span> and <span class="refAuthor">E. Kline</span>, <span class="refTitle">"Captive-Portal Identification in DHCP and Router Advertisements (RAs)"</span>, <span class="seriesInfo">RFC 8910</span>, <span class="seriesInfo">DOI 10.17487/RFC8910</span>, <time datetime="2020-09" class="refDate">September 2020</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc8910">https://www.rfc-editor.org/info/rfc8910</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC9110">[RFC9110]</dt>
-    <dd>
+      <dd>
 <span class="refAuthor">Fielding, R., Ed.</span>, <span class="refAuthor">Nottingham, M., Ed.</span>, and <span class="refAuthor">J. Reschke, Ed.</span>, <span class="refTitle">"HTTP Semantics"</span>, <span class="seriesInfo">STD 97</span>, <span class="seriesInfo">RFC 9110</span>, <span class="seriesInfo">DOI 10.17487/RFC9110</span>, <time datetime="2022-06" class="refDate">June 2022</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc9110">https://www.rfc-editor.org/info/rfc9110</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
+</section>
+</div>
+<div id="sec-informative-references">
+<section id="section-9.2">
+        <h3 id="name-informative-references">
+<a href="#section-9.2" class="section-number selfRef">9.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
+        </h3>
+<dl class="references">
+<dt id="RFC9577">[RFC9577]</dt>
+      <dd>
+<span class="refAuthor">Pauly, T.</span>, <span class="refAuthor">Valdez, S.</span>, and <span class="refAuthor">C. A. Wood</span>, <span class="refTitle">"The Privacy Pass HTTP Authentication Scheme"</span>, <span class="seriesInfo">RFC 9577</span>, <span class="seriesInfo">DOI 10.17487/RFC9577</span>, <time datetime="2024-06" class="refDate">June 2024</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc9577">https://www.rfc-editor.org/info/rfc9577</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+</dl>
+</section>
+</div>
 </section>
 </div>
 <div id="authors-addresses">

@@ -2,7 +2,7 @@
 title: Captive Portal API State Structure Enhancement
 abbrev: CAPPORT API State Enhancement
 category: info
-docname: draft-sawant-capport-api-state-enhancement-01
+docname: draft-sawant-capport-api-state-enhancement-02
 submissiontype: IETF
 
 ipr: trust200902
@@ -53,7 +53,7 @@ top-level of the JSON structure returned by the API server.
 | Key             | Type        | Description                  |
 |:----------------|:------------|:-----------------------------|
 | client-authentication-url | string | Provides the URL of the authentication server that MUST be accessed over TLS with which the client is authenticated without user interaction. Authentication Server authenticates clients using the HTTP authentication framework specified in {{!RFC9110}}. The server MUST NOT require user interaction on the client device. The client MUST have a credential to perform the authentication without user interaction. |
-{: #new-key title="Table 1"}
+{: #new-key title=""}
 
 # Use Cases
 
@@ -63,9 +63,11 @@ top-level of the JSON structure returned by the API server.
   can join captive networks using the credentials provisioned to
   them.
   
-* Use of "PrivateToken" HTTP authentication scheme can attest that
-  the client behind the user agent is likely not a bot attempting to
-  perform some form of automated attack such as credential stuffing.
+* {{Section 2 of ?RFC9577}} specifies "PrivateToken" HTTP
+  authentication scheme. Use of "PrivateToken" HTTP authentication
+  scheme can attest that the client behind the user agent is likely
+  not a bot attempting to perform some form of automated attack
+  such as credential stuffing.
   
 * User experience improvements by not requiring user's interaction
   with the Captive Portal system every time client device connects
@@ -77,15 +79,22 @@ top-level of the JSON structure returned by the API server.
 
 Upon discovering the URI of the API server, a client connected to a
 captive network will query the API server to retrieve information
-about its captive state and conditions to escape captivity.  In this
-example, the client discovered the URI "https://example.org/captive-
-portal/api/X54PD39JV" using one of the mechanisms defined in
-{{!RFC8910}}.
+about its captive state and conditions to escape captivity. In this
+example, the client discovered the URI
+"https://example.org/captive-portal/api/X54PD39JV" using one of
+the mechanisms defined in {{!RFC8910}}.
+
+This example illustrates the use of "client-authentication-url" key,
+and therefore, excludes "user-portal-url" key from the JSON content
+sent by the API server. An API server may choose to send both the keys
+based on its policy and configuration. And the client can choose
+one of them or both to perform the authentication, based on its
+configuration and capability.
 
 To request the Captive Portal JSON content, a client sends an
 HTTP GET request:
 
-~~~ aasvg
+~~~
 GET /captive-portal/api/X54PD39JV HTTP/1.1
 Host: example.org
 Accept: application/captive+json
@@ -93,7 +102,7 @@ Accept: application/captive+json
 
 The server then responds with the JSON content for that client:
 
-~~~ aasvg
+~~~
 HTTP/1.1 200 OK
 Cache-Control: private
 Date: Mon, 19 Aug 2024 05:07:35 GMT
@@ -110,7 +119,7 @@ an authentication session with the server (as specified by "client-
 authentication-url" key) to enable access to the external network.
 The client sends following HTTP request to begin the authentication:
 
-~~~ aasvg
+~~~
 GET /auth HTTP/1.1
 Host: server.example.org
 ~~~
@@ -122,7 +131,7 @@ shows "Bearer" authentication scheme defined in {{!RFC6750}}.
 schemes. The server sends HTTP response message with 401
 (Unauthorized) status code along with WWW-Authenticate header: 
 
-~~~ aasvg
+~~~
 HTTP/1.1 401 Unauthorized
 WWW-Authenticate: Bearer realm="example"
 ~~~
@@ -131,7 +140,7 @@ In response to the received challenge, the client sends an access
 token in the "Authorization" request header using "Bearer"
 authentication scheme:
 
-~~~ aasvg
+~~~
 GET /auth HTTP/1.1
 Host: server.example.org
 Authorization: Bearer mF_9.B5f-4.1JqM
@@ -140,7 +149,7 @@ Authorization: Bearer mF_9.B5f-4.1JqM
 If the access token is found valid, the server sends a response to
 the client. An example of such response is:
 
-~~~ aasvg
+~~~
 HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
 Cache-Control: no-store
@@ -160,7 +169,7 @@ When the client requests the Captive Portal JSON content after
 gaining external network access, the server responds with updated
 JSON content:
 
-~~~ aasvg
+~~~
 HTTP/1.1 200 OK
 Cache-Control: private
 Date: Mon, 19 Aug 2024 05:08:13 GMT
